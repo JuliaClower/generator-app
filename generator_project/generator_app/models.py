@@ -31,3 +31,6 @@ class Event(models.Model):
     name = models.CharField(max_length=255)
     time = models.IntegerField()
     location = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
