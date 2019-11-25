@@ -19,11 +19,13 @@ REACT_APP_DIR = os.path.join(BASE_DIR, 'client')
 
 STATICFILES_DIRS = [
     os.path.join(REACT_APP_DIR, 'build', 'static')
+]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
 SECRET_KEY = 'fomtin5^(qs^*%m32(b1&nlrhb#k61i68ibzwmnlt0p&6^!u0='
 
 # SECURITY WARNING: don't run with debug turned on in production!
