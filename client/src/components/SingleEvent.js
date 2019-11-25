@@ -5,12 +5,8 @@ export default class SingleDinner extends Component {
     state = {
         home: '',
         name: '',
-        vegetarian: '',
-        ingredients: '',
-        instructions: '',
-        location: '',
-        price: '',
-        time: ''
+        time: '',
+        location: ''
     }
     componentDidMount() {
         const dinnerId = this.props.match.params.dinnerId

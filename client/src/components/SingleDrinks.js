@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-export default class SingleDinner extends Component {
+export default class SingleDrinks extends Component {
     state = {
         home: '',
+        alcoholic: '',
         name: '',
-        vegetarian: '',
+        price: '',
+        time: '',
+        location: '',
         ingredients: '',
         instructions: '',
-        location: '',
-        price: '',
-        time: ''
     }
     componentDidMount() {
-        const dinnerId = this.props.match.params.dinnerId
-        axios.get(`/api/v1/dinner/${dinnerId}`)
+        const drinksId = this.props.match.params.drinksId
+        axios.get(`/api/v1/drinks/${drinksId}`)
             .then((res) => {
                 console.log(res.data)
                 this.setState(res.data)
