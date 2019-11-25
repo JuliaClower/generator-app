@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default class Dinner extends Component {
@@ -13,26 +13,20 @@ export default class Dinner extends Component {
     getAllDinner = () => {
         axios.get('api/v1/dinner')
             .then((res) => {
-                this.setState({
-                    dinnerList: res.data,
-                });
+                const dinnerList = res.data;
+                this.setState({ dinnerList: dinnerList })
             });
-    }
+    };
     render() {
-        const dinnerList = this.state.dinnerList.map((dinner) => {
-            return (
-                <div key={dinner.id}>
-                    <Link to={`/dinner/${dinner.id}`}>
-                        <h2>{dinner.name}</h2>
-                    </Link>
-
-                </div>
-            )
-        })
         return (
             <div>
-                {dinnerList}
+                {this.state.dinnerList.map((dinner) => {
+                    return (<Link to={`dinner/${dinner.id}`}>
+                        <div>{dinner.name}</div>
+                    </Link>)
+                })}
             </div>
         )
     }
 }
+
