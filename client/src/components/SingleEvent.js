@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-export default class SingleDinner extends Component {
+export default class SingleEvent extends Component {
     state = {
         home: '',
         name: '',
@@ -9,8 +9,8 @@ export default class SingleDinner extends Component {
         location: ''
     }
     componentDidMount() {
-        const dinnerId = this.props.match.params.dinnerId
-        axios.get(`/api/v1/dinner/${dinnerId}`)
+        const eventId = this.props.match.params.eventId
+        axios.get(`/api/v1/event/${eventId}`)
             .then((res) => {
                 console.log(res.data)
                 this.setState(res.data)

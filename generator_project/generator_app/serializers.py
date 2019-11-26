@@ -16,4 +16,4 @@ class DinnerSerializer(serializers.ModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Event
-        fields = ('id', 'home', 'time', 'location')
+        fields = ('id', 'home', 'time', 'location', 'name')

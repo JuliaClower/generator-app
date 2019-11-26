@@ -4,13 +4,13 @@ import axios from 'axios';
 
 export default class Event extends Component {
     state = {
-        drinksList: []
+        eventList: []
     }
     componentDidMount = () => {
         this.getAllEvent();
     }
 
-    getAllDinner = () => {
+    getAllEvent = () => {
         axios.get('api/v1/event')
             .then((res) => {
                 const eventList = res.data;

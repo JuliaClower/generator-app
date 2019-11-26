@@ -10,7 +10,7 @@ export default class Drinks extends Component {
         this.getAllDrinks();
     }
 
-    getAllDinner = () => {
+    getAllDrinks = () => {
         axios.get('api/v1/drinks')
             .then((res) => {
                 const drinksList = res.data;
