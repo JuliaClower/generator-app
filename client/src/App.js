@@ -1,7 +1,7 @@
 // App.js
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import Plan from './components/Plan.js';
+import Wizard from './components/Wizard.js';
 import Dinner from './components/Dinner.js';
 import Drinks from './components/Drinks.js';
 import Event from './components/Event.js';
@@ -16,7 +16,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <Switch>
-            <Route exact path="/" component={Plan} />
+            <Route exact path="/" component={Wizard} />
             <Route exact path="/dinner" component={Dinner} />
             <Route exact path="/drinks" component={Drinks} />
             <Route exact path="/event" component={Event} />
