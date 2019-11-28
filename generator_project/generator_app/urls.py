@@ -7,6 +7,7 @@ router = routers.DefaultRouter()
 router.register('drinks', views.DrinksView)
 router.register('dinner', views.DinnerView)
 router.register('event', views.EventView)
+router.register('date', views.DateView)
 
 
 urlpatterns = [

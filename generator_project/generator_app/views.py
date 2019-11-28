@@ -3,8 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 from rest_framework import viewsets
 
-from .serializers import DrinksSerializer, DinnerSerializer, EventSerializer
-from .models import Drinks, Dinner, Event
+from .serializers import DrinksSerializer, DinnerSerializer, EventSerializer, DateSerializer
+from .models import Drinks, Dinner, Event, Date
 
 
 class DrinksView(viewsets.ModelViewSet):
@@ -18,3 +18,7 @@ class DinnerView(viewsets.ModelViewSet):
 class EventView(viewsets.ModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
+
+class DateView(viewsets.ModelViewSet):
+    queryset = Date.objects.all()
+    serializer_class = DateSerializer

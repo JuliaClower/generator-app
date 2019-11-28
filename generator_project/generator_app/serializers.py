@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Drinks, Dinner, Event
+from .models import Drinks, Dinner, Event, Date
 
 
 class DrinksSerializer(serializers.ModelSerializer):
@@ -17,3 +17,8 @@ class EventSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Event
         fields = ('id', 'home', 'time', 'location', 'name')
+
+class DateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Date
+        fields = ('id', 'dinner', 'drinks', 'event')
