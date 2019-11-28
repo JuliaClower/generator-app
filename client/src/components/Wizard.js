@@ -96,6 +96,13 @@ export default class Wizard extends Component {
                     </button>
                 )
             })
+        } else {
+            console.log('this.state.noDrinksSelected', this.state.noDrinksSelected)
+            return (
+
+                <p>{this.state.noDrinksSelected === false ? this.state.selectedDrink.name : 'no drink selected'}</p>
+
+            )
         }
         return (
             <div>
