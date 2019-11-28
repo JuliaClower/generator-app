@@ -34,3 +34,12 @@ class Event(models.Model):
 
     def __str__(self):
         return self.name
+
+class Date(models.Model):
+    name = models.CharField(max_length=255)
+    drink = models.CharField(max_length=255)
+    dinner = models.CharField(max_length=255)
+    event = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
