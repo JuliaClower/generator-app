@@ -19,6 +19,7 @@ class EventView(viewsets.ModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
 
-class DateView(viewsets.ModelViewSet):
+class CreateDateView(viewsets.ModelViewSet):
     queryset = Date.objects.all()
     serializer_class = DateSerializer
+

@@ -103,6 +103,9 @@ export default class Wizard extends Component {
 					<p>{this.state.selectedDrink.name}</p>
 					<p>{this.state.selectedDinner.name}</p>
 					<p>{this.state.selectedEvent.name}</p>
+					<button>
+						Post Final Date
+					</button>
 				</div>
 
 			)
