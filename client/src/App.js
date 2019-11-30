@@ -9,12 +9,14 @@ import SingleDrinks from './components/SingleDrinks.js'
 import SingleEvent from './components/SingleEvent.js'
 import SingleDinner from './components/SingleDinner.js'
 import "./App.css";
+import Header from "./components/Header.js";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Router>
+        <Route exact path="/" component={Header} />
           <Switch>
             <Route exact path="/" component={Wizard} />
             <Route exact path="/dinner" component={Dinner} />

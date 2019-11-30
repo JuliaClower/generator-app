@@ -60,6 +60,28 @@ export default class Wizard extends Component {
 		this.setState({ selectedEvent: event })
 		this.setState({ noEventSelected: false })
 	}
+	handleChange = event => {
+		this.setState({ name: event.target.value });
+	};
+
+	handleSubmit = (event) => {
+		event.preventDefault();
+
+		let dateSave = {
+			name: '',
+			drink: this.state.selectedDrink.name,
+			dinner: this.state.selectedDinner.name,
+			event: this.state.selectedEvent.name
+		}
+
+		axios.post('/api/v1/date', { dateSave })
+			.then((res) => {
+				console.log(res);
+			}, (error) => {
+				console.log(error);
+			});
+	}
+
 	render() {
 		let drinksList = []
 		let dinnerList = []
@@ -103,9 +125,15 @@ export default class Wizard extends Component {
 					<p>{this.state.selectedDrink.name}</p>
 					<p>{this.state.selectedDinner.name}</p>
 					<p>{this.state.selectedEvent.name}</p>
-					<button>
-						Post Final Date
+					<form onSubmit={this.handleSubmit}>
+						<label>
+							Date Name:
+							<input type="text" name="name" onChange={this.handleChange} />
+						</label>
+						<button type='submit'>
+							Post Final Date
 					</button>
+					</form>
 				</div>
 
 			)
