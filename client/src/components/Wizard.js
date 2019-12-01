@@ -8,6 +8,7 @@ import axios from 'axios';
 
 export default class Wizard extends Component {
 	state = {
+		name: '',
 		event: {},
 		dinner: {},
 		selectedDrink: {},
@@ -74,7 +75,7 @@ export default class Wizard extends Component {
 			event: this.state.selectedEvent.name
 		}
 
-		axios.post('/api/v1/date', { dateSave })
+		axios.post('api/v1/date', { dateSave })
 			.then((res) => {
 				console.log(res);
 			}, (error) => {
@@ -89,11 +90,21 @@ export default class Wizard extends Component {
 		if (this.state.noDrinksSelected) {
 			drinksList = this.state.drinksList.map((drink) => {
 				return (
-					<button
-						onClick={() => { this.drinksSelectClick(drink) }}
-					>
-						{drink.name}
-					</button>
+						<div className="itemDisplayDiv">
+							<p>{drink.name}</p>
+							<p>Alcoholic Beverage: {drink.alcoholic}</p>
+							<p>Drink Cost: $ {drink.price}</p>
+							<p>Time: {drink.time} minutes</p>
+							<p>Address: {drink.location}</p>
+							<p>Drink Ingredients: {drink.ingredients}</p>
+							<p>Instructions: {drink.instructions}</p>
+							<button
+								className="selectItemButton"
+								onClick={() => { this.drinksSelectClick(drink) }}
+							>
+								Select {drink.name}
+							</button>
+						</div>
 				)
 			})
 		}
@@ -139,7 +150,7 @@ export default class Wizard extends Component {
 			)
 		}
 		return (
-			<div>
+			<div className="pageDisplayScrollBox">
 				{drinksList}
 				{dinnerList}
 				{eventList}
