@@ -90,70 +90,90 @@ export default class Wizard extends Component {
 		if (this.state.noDrinksSelected) {
 			drinksList = this.state.drinksList.map((drink) => {
 				return (
-						<div className="itemDisplayDiv">
-							<p>{drink.name}</p>
-							<p>Alcoholic Beverage: {drink.alcoholic}</p>
-							<p>Drink Cost: $ {drink.price}</p>
-							<p>Time: {drink.time} minutes</p>
-							<p>Address: {drink.location}</p>
-							<p>Drink Ingredients: {drink.ingredients}</p>
-							<p>Instructions: {drink.instructions}</p>
-							<button
-								className="selectItemButton"
-								onClick={() => { this.drinksSelectClick(drink) }}
-							>
-								Select {drink.name}
-							</button>
-						</div>
+					<div className="itemDisplayDiv">
+						<h1>{drink.name}</h1>
+						<p>Alcoholic Beverage: {drink.alcoholic}</p>
+						<p>Drink Cost: $ {drink.price}</p>
+						<p>Time: {drink.time} minutes</p>
+						<p>Address: {drink.location}</p>
+						<p>Drink Ingredients: {drink.ingredients}</p>
+						<p>Instructions: {drink.instructions}</p>
+						<button
+							className="selectItemButton"
+							onClick={() => { this.drinksSelectClick(drink) }}
+						>
+							Select {drink.name}
+						</button>
+					</div>
 				)
 			})
 		}
 		if (this.state.noDinnerSelected) {
 			dinnerList = this.state.dinnerList.map((dinner) => {
 				return (
-					<button
-						onClick={() => { this.dinnerSelectClick(dinner) }}
-					>
-						{dinner.name}
-					</button>
+					<div className="itemDisplayDiv">
+						<h1>{dinner.name}</h1>
+						<p>Home Meal or Restaurant: {dinner.home}</p>
+						<p>Vegetarian: {dinner.vegetarian}</p>
+						<p>Price: ${dinner.price}</p>
+						<p>Time: {dinner.time} minutes</p>
+						<p>Address: {dinner.location}</p>
+						<p>Ingredients: {dinner.ingredients}</p>
+						<p>Instructions: {dinner.instructions}</p>
+						<button
+							onClick={() => { this.dinnerSelectClick(dinner) }}
+						>
+							Select {dinner.name}
+						</button>
+					</div>
 				)
 			})
 		}
 		if (this.state.noEventSelected) {
 			eventList = this.state.eventList.map((event) => {
 				return (
-					<button
-						onClick={() => { this.eventSelectClick(event) }}
-					>
-						{event.name}
-					</button>
+					<div className="itemDisplayDiv">
+						<h1>{event.name}</h1>
+						<p>Home Event: {event.home}</p>
+						<p>Time: {event.time} minutes</p>
+						<p>Address: {event.location}</p>
+						<button
+							onClick={() => { this.eventSelectClick(event) }}
+						>
+							{event.name}
+						</button>
+					</div>
 				)
 			})
 		} else {
 			console.log('this.state.noDrinksSelected', this.state.noDrinksSelected)
 			return (
-				<div>
-					<p>{this.state.selectedDrink.name}</p>
-					<p>{this.state.selectedDinner.name}</p>
-					<p>{this.state.selectedEvent.name}</p>
-					<form onSubmit={this.handleSubmit}>
-						<label>
-							Date Name:
-							<input type="text" name="name" onChange={this.handleChange} />
-						</label>
-						<button type='submit'>
-							Post Final Date
-					</button>
-					</form>
+				<div className="mainPage">
+					<div className="finalPageDisplayScrollBox">
+						<form onSubmit={this.handleSubmit}>
+							<label>
+								Date Name:
+								<input type="text" name="name" onChange={this.handleChange} />
+							</label>
+							<button type='submit'>
+								Post Final Date
+							</button>
+						</form>
+						<p>Drinks: {this.state.selectedDrink.name}</p>
+						<p>Dinner: {this.state.selectedDinner.name}</p>
+						<p>Event: {this.state.selectedEvent.name}</p>
+					</div>
 				</div>
 
 			)
 		}
 		return (
-			<div className="pageDisplayScrollBox">
-				{drinksList}
-				{dinnerList}
-				{eventList}
+			<div className="mainPage">
+				<div className="pageDisplayScrollBox">
+					{drinksList}
+					{dinnerList}
+					{eventList}
+				</div>
 			</div>
 		)
 	}
