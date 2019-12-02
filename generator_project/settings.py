@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import django_heroku
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,7 +33,7 @@ SECRET_KEY = 'fomtin5^(qs^*%m32(b1&nlrhb#k61i68ibzwmnlt0p&6^!u0='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'django-react-hotness.herokuapp.com']
 
 
 # Application definition
@@ -136,5 +138,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-import django_heroku
 django_heroku.settings(locals())
