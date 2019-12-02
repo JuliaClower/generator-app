@@ -144,6 +144,7 @@ export default class Wizard extends Component {
 						<p>Ingredients: {dinner.ingredients}</p>
 						<p>Instructions: {dinner.instructions}</p>
 						<button
+							className="selectItemButton"
 							onClick={() => { this.dinnerSelectClick(dinner) }}
 						>
 							Select {dinner.name}
@@ -160,6 +161,7 @@ export default class Wizard extends Component {
 						<p>Time: {event.time} minutes</p>
 						<p>Location: {event.location}</p>
 						<button
+							className="selectItemButton"
 							onClick={() => { this.eventSelectClick(event) }}
 						>
 							{event.name}
@@ -177,7 +179,9 @@ export default class Wizard extends Component {
 								Date Name:
 								<input type="text" name="name" onChange={this.handleChange} />
 							</label>
-							<button type='submit'>
+							<button
+								className="selectItemButton"
+								type='submit'>
 								Post Final Date
 							</button>
 						</form>
@@ -192,20 +196,20 @@ export default class Wizard extends Component {
 							<p>Instructions: {this.state.selectedDrink.instructions}</p>
 						</div>
 						<div>
-						<h1>Dinner</h1> 
-						<p className='nameP'>{this.state.selectedDinner.name}</p>
-						<p>Vegetarian: {this.state.selectedDinner.vegetarian ? 'Yes' : "No"}</p>
-						<p>Price: $ {this.state.selectedDinner.price}</p>
-						<p>Time: {this.state.selectedDinner.time} minutes</p>
-						<p>Location: {this.state.selectedDinner.location}</p>
-						<p>Ingredients: {this.state.selectedDinner.ingredients}</p>
-						<p>Instructions: {this.state.selectedDinner.instructions}</p>
+							<h1>Dinner</h1>
+							<p className='nameP'>{this.state.selectedDinner.name}</p>
+							<p>Vegetarian: {this.state.selectedDinner.vegetarian ? 'Yes' : "No"}</p>
+							<p>Price: $ {this.state.selectedDinner.price}</p>
+							<p>Time: {this.state.selectedDinner.time} minutes</p>
+							<p>Location: {this.state.selectedDinner.location}</p>
+							<p>Ingredients: {this.state.selectedDinner.ingredients}</p>
+							<p>Instructions: {this.state.selectedDinner.instructions}</p>
 						</div>
 						<div>
-						<h1>Event</h1>
-						<p className='nameP'>{this.state.selectedEvent.name}</p>
-						<p>Time: {this.state.selectedEvent.time} minutes</p>
-						<p>Location: {this.state.selectedEvent.location}</p>
+							<h1>Event</h1>
+							<p className='nameP'>{this.state.selectedEvent.name}</p>
+							<p>Time: {this.state.selectedEvent.time} minutes</p>
+							<p>Location: {this.state.selectedEvent.location}</p>
 						</div>
 					</div>
 				</div>
