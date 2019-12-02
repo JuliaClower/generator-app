@@ -8,6 +8,7 @@ import axios from 'axios';
 
 export default class Wizard extends Component {
 	state = {
+		showInput: true,
 		dateName: '',
 		event: {},
 		dinner: {},
@@ -82,10 +83,8 @@ export default class Wizard extends Component {
 		console.log(dateSave)
 
 		axios.post('api/v1/date/', dateSave)
-			.then((res) => {
-				console.log(res);
-			}, (error) => {
-				console.log(error);
+			.then(() => {
+				this.setState({ showInput: false })
 			});
 	}
 
@@ -176,14 +175,14 @@ export default class Wizard extends Component {
 					<div className="finalPageDisplayScrollBox">
 						<form onSubmit={this.handleSubmit}>
 							<label>
-								Date Name:
-								<input type="text" name="name" onChange={this.handleChange} />
+								{this.state.showInput === true ? <h1>Date Name:</h1> : null}
+								{this.state.showInput === true ? <input type="text" name="name" onChange={this.handleChange} /> : <div className="dateNameDiv">{this.state.dateName}</div>}
 							</label>
-							<button
+							{this.state.showInput === true ? <button
 								className="selectItemButton"
 								type='submit'>
 								Post Final Date
-							</button>
+							</button> : null}
 						</form>
 						<div>
 							<h1>Drinks</h1>
