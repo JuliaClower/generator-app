@@ -13,6 +13,8 @@ This app is intended to help the less-creative individual orchestrate a fun and 
 * Project uses 4 back-end API models, one of which the user can POST to
 
 #### Wireframe and ERD
+![alt-text](./client/src/ERD.pdf "ERD")
+
 ![alt-text](./client/IMG_3581.JPG "Wireframe1") 
 ![alt-text](./client/IMG_3125.JPG "Wireframe2") 
 ![alt-text](./client/IMG_0974.JPG "Wireframe3") 
