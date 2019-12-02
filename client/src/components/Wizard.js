@@ -8,7 +8,7 @@ import axios from 'axios';
 
 export default class Wizard extends Component {
 	state = {
-		name: '',
+		dateName: '',
 		event: {},
 		dinner: {},
 		selectedDrink: {},
@@ -62,20 +62,22 @@ export default class Wizard extends Component {
 		this.setState({ noEventSelected: false })
 	}
 	handleChange = event => {
-		this.setState({ name: event.target.value });
+		console.log(event.target.value)
+		this.setState({ dateName: event.target.value });
 	};
 
 	handleSubmit = (event) => {
 		event.preventDefault();
 
 		let dateSave = {
-			name: '',
+			name: this.state.dateName,
 			drink: this.state.selectedDrink.name,
 			dinner: this.state.selectedDinner.name,
 			event: this.state.selectedEvent.name
 		}
+		console.log(dateSave)
 
-		axios.post('api/v1/date', { dateSave })
+		axios.post('api/v1/date/',  dateSave )
 			.then((res) => {
 				console.log(res);
 			}, (error) => {
