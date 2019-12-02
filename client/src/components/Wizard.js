@@ -17,6 +17,7 @@ export default class Wizard extends Component {
 		noDrinksSelected: true,
 		noDinnerSelected: true,
 		noEventSelected: true,
+		beginSelect: true, 
 		drinksList: [],
 		eventList: [],
 		dinnerList: []
@@ -45,6 +46,9 @@ export default class Wizard extends Component {
 				this.setState({ eventList: eventList })
 			});
 	};
+	beginSelectClick = () => {
+		this.setState({ beginSelect: false })
+	}
 	drinksSelectClick = (drink) => {
 		console.log('drinks clicked')
 		console.log(drink)
@@ -89,12 +93,30 @@ export default class Wizard extends Component {
 		let drinksList = []
 		let dinnerList = []
 		let eventList = []
+		if (this.state.beginSelect) {
+			return (
+				<div className="mainPage">
+				<div className="pageDisplayScrollBox">
+				<div className="itemDisplayDiv">
+					<h1>Get Started</h1>
+          <p>Generate a date by selecting a drink, dinner, and event.</p>
+          <button
+						className="selectItemButton"
+						onClick={() => {this.beginSelectClick()}}
+					>
+            Begin!
+          </button>
+				</div>
+				</div>
+				</div>
+			)
+		}
 		if (this.state.noDrinksSelected) {
 			drinksList = this.state.drinksList.map((drink) => {
 				return (
 					<div className="itemDisplayDiv">
 						<h1>{drink.name}</h1>
-						<p>Alcoholic Beverage: {drink.alcoholic}</p>
+						<p>Alcoholic Beverage: {drink.alcoholic ? 'Yes' : 'No'}</p>
 						<p>Drink Cost: $ {drink.price}</p>
 						<p>Time: {drink.time} minutes</p>
 						<p>Address: {drink.location}</p>

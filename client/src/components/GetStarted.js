@@ -5,6 +5,10 @@ export default class GetStarted extends Component {
         return (
             <div>
                 <h1>Get Started</h1>
+                <p>Generate a date by selecting a drink, dinner, and event.</p>
+                <button>
+                    Begin!
+                </button>
             </div>
         )
     }
