@@ -17,7 +17,7 @@ export default class Wizard extends Component {
 		noDrinksSelected: true,
 		noDinnerSelected: true,
 		noEventSelected: true,
-		beginSelect: true, 
+		beginSelect: true,
 		drinksList: [],
 		eventList: [],
 		dinnerList: []
@@ -81,7 +81,7 @@ export default class Wizard extends Component {
 		}
 		console.log(dateSave)
 
-		axios.post('api/v1/date/',  dateSave )
+		axios.post('api/v1/date/', dateSave)
 			.then((res) => {
 				console.log(res);
 			}, (error) => {
@@ -96,18 +96,18 @@ export default class Wizard extends Component {
 		if (this.state.beginSelect) {
 			return (
 				<div className="mainPage">
-				<div className="pageDisplayScrollBox">
-				<div className="itemDisplayDiv">
-					<h1>Get Started</h1>
-          <p>Generate a date by selecting a drink, dinner, and event.</p>
-          <button
-						className="selectItemButton"
-						onClick={() => {this.beginSelectClick()}}
-					>
-            Begin!
+					<div className="pageDisplayScrollBox">
+						<div className="itemDisplayDiv">
+							<h1>Get Started</h1>
+							<p>Generate a date by selecting a drink, dinner, and event.</p>
+							<button
+								className="selectItemButton"
+								onClick={() => { this.beginSelectClick() }}
+							>
+								Begin!
           </button>
-				</div>
-				</div>
+						</div>
+					</div>
 				</div>
 			)
 		}
@@ -137,8 +137,7 @@ export default class Wizard extends Component {
 				return (
 					<div className="itemDisplayDiv">
 						<h1>{dinner.name}</h1>
-						<p>Home Meal or Restaurant: {dinner.home}</p>
-						<p>Vegetarian: {dinner.vegetarian}</p>
+						<p>Vegetarian: {dinner.vegetarian ? 'Yes' : "No"}</p>
 						<p>Price: ${dinner.price}</p>
 						<p>Time: {dinner.time} minutes</p>
 						<p>Address: {dinner.location}</p>
@@ -158,9 +157,8 @@ export default class Wizard extends Component {
 				return (
 					<div className="itemDisplayDiv">
 						<h1>{event.name}</h1>
-						<p>Home Event: {event.home}</p>
 						<p>Time: {event.time} minutes</p>
-						<p>Address: {event.location}</p>
+						<p>Location: {event.location}</p>
 						<button
 							onClick={() => { this.eventSelectClick(event) }}
 						>
@@ -183,9 +181,32 @@ export default class Wizard extends Component {
 								Post Final Date
 							</button>
 						</form>
-						<p>Drinks: {this.state.selectedDrink.name}</p>
-						<p>Dinner: {this.state.selectedDinner.name}</p>
-						<p>Event: {this.state.selectedEvent.name}</p>
+						<div>
+							<h1>Drinks</h1>
+							<p className='nameP'>{this.state.selectedDrink.name}</p>
+							<p>Alcoholic: {this.state.selectedDrink.alcoholic ? 'Yes' : 'No'}</p>
+							<p>Price: $ {this.state.selectedDrink.price}</p>
+							<p>Time: {this.state.selectedDrink.time} minutes </p>
+							<p>Location: {this.state.selectedDrink.location}</p>
+							<p>Ingredients: {this.state.selectedDrink.ingredients}</p>
+							<p>Instructions: {this.state.selectedDrink.instructions}</p>
+						</div>
+						<div>
+						<h1>Dinner</h1> 
+						<p className='nameP'>{this.state.selectedDinner.name}</p>
+						<p>Vegetarian: {this.state.selectedDinner.vegetarian ? 'Yes' : "No"}</p>
+						<p>Price: $ {this.state.selectedDinner.price}</p>
+						<p>Time: {this.state.selectedDinner.time} minutes</p>
+						<p>Location: {this.state.selectedDinner.location}</p>
+						<p>Ingredients: {this.state.selectedDinner.ingredients}</p>
+						<p>Instructions: {this.state.selectedDinner.instructions}</p>
+						</div>
+						<div>
+						<h1>Event</h1>
+						<p className='nameP'>{this.state.selectedEvent.name}</p>
+						<p>Time: {this.state.selectedEvent.time} minutes</p>
+						<p>Location: {this.state.selectedEvent.location}</p>
+						</div>
 					</div>
 				</div>
 
