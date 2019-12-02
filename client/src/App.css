@@ -10,11 +10,11 @@
   height: 100vh; 
 }
 .header {
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Dancing Script', cursive;  
   color: rgb(96, 155, 165);
   height: 100px; 
   line-height: 100px; 
-  font-size: 50px;
+  font-size: 60px;
 }
 .itemDisplayDiv { 
   padding: 50px 0 50px 0; 
@@ -41,8 +41,8 @@
   border-radius: 25px;
 }
 p {
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px;
+  font-family: 'Josefin Slab', serif;  
+  font-size: 20px;
   margin: 1px; 
   text-align: left; 
 }
